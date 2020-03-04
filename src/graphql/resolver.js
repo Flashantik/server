@@ -1,29 +1,35 @@
-const array = []
-let count =0
-
-// function generateId() {
-//     const str = "qWertyuiOpAsDfghjklZxcVbnm"
-//     let time = new Date
-//     let strSlice = (Math.random*10)
-//     console.log(strSlice)
-//     return str[Math.ceil(Math.random())]+Math.random()+ time.getTime()+ str.slice(strSlice, 26)
-// }
-
-module.exports = {
+import controller from "../controllers/auth.controller"
+export default {
     Query: {
-        getUser(root, {id}){
-        return id
-        }
-    },
-    Mutation:{
-        createUser(root, {user}) {
-            return {...user, id: generateId()}
+        getUserByToken(root, { token }) {
+            return controller.getUser(token)
         },
-        // setMessage: (root, {message}) => {
-        // return message;
-        // },
-        // addBook(root, {title}){
-        //     return title
-        // }
+        getUserData(root, { token }, {contextUser}) {
+            let checkToken =controller.checkToken(token)
+            if(checkToken) {
+                if(contextUser) {
+                    return contextUser
+                } else {
+                    throw new AuthenticationError("Нет пользователя")
+                }
+            }
+        },
+        login(root, {user}) {
+            try {
+                return controller.login(user)
+            } catch (error) {
+                console.log("error in resolver", error)
+            }
+        },
+    },
+    Mutation: {
+        createUser(root, {user}) {
+            try {
+                return controller.createUser(user)
+            } catch (error) {
+                console.log("error in resolver", error)
+            }
+        },
+
     }
 }
