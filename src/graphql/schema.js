@@ -8,16 +8,25 @@ export default gql `
   }
   type Mutation {
     createUser(user: inputUser): User
+    refreshToken(refreshToken:String!): Tokens
+    logout(refreshToken:String!): Boolean
+    setDisabledSidebar(disabledSidebar: [Boolean]!): [Boolean]
   }
-
+  type Tokens{
+    access: String!
+    refresh: String!
+  }
+  type refresh {
+    token:String
+  }
   type User{
     id: ID
     name: String
     email: String
     lastname: String
     phone: String
-    password: String
     token: String
+    refresh:String
     disabledSidebar: [Boolean!]
   }
   input inputUserLogin{

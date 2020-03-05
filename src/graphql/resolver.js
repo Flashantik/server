@@ -1,11 +1,12 @@
-import controller from "../controllers/auth.controller"
+import authController from "../controllers/auth.controller.js"
+import completeController from "../controllers/complete.controller.js"
 export default {
     Query: {
         getUserByToken(root, { token }) {
-            return controller.getUser(token)
+            return authController.getUser(token)
         },
         getUserData(root, { token }, {contextUser}) {
-            let checkToken =controller.checkToken(token)
+            let checkToken =authController.checkToken(token)
             if(checkToken) {
                 if(contextUser) {
                     return contextUser
@@ -14,22 +15,51 @@ export default {
                 }
             }
         },
-        login(root, {user}) {
+        login(root, {user}, {fingerprint}) {
             try {
-                return controller.login(user)
+                return authController.login(user, fingerprint.hash)
             } catch (error) {
-                console.log("error in resolver", error)
+                console.log("error in resolver login", error)
             }
         },
     },
     Mutation: {
-        createUser(root, {user}) {
+        createUser(root, {user}, {fingerprint}) {
             try {
-                return controller.createUser(user)
+                return authController.createUser(user, fingerprint.hash)
+            } catch (error) {
+                console.log("error in resolver createUser", error)
+            }
+        },
+        refreshToken(root,{refreshToken}, {fingerprint}){
+            try {
+                return authController.refreshToken(refreshToken, fingerprint.hash)
+            } catch (error) {
+                console.log("error in resolver refreshToken", error)
+            }
+        },
+        logout(root, {refreshToken}){
+            try {
+                return authController.logout(refreshToken)
             } catch (error) {
                 console.log("error in resolver", error)
             }
         },
 
+//      **     **     ** ********** **      **       ******** ****     ** *******  
+//     ****   /**    /**/////**/// /**     /**      /**///// /**/**   /**/**////** 
+//    **//**  /**    /**    /**    /**     /**      /**      /**//**  /**/**    /**
+//   **  //** /**    /**    /**    /**********      /******* /** //** /**/**    /**
+//  **********/**    /**    /**    /**//////**      /**////  /**  //**/**/**    /**
+// /**//////**/**    /**    /**    /**     /**      /**      /**   //****/**    ** 
+// /**     /**//*******     /**    /**     /**      /********/**    //***/*******  
+// //      //  ///////      //     //      //       //////// //      /// ///////   
+        setDisabledSidebar(root, {disabledSidebar}, {contextUser}) {
+            try {
+                return completeController.setDisabledSidebar(disabledSidebar, contextUser)
+            } catch (error) {
+                console.log("error in resolver", error)
+            }
+        },
     }
 }

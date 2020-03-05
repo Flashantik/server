@@ -1,9 +1,9 @@
 import express from 'express'
 import { ApolloServer} from 'apollo-server-express'
 import mongoose from 'mongoose'
+import Fingerprint from'express-fingerprint'
 // import authRoutes from './routes/auth.routes'
 import contoller from "./controllers/auth.controller"
-
 
 import keys from "./keys"
 import schema from './graphql/schema.js'
@@ -23,16 +23,26 @@ dbConnection.once('open', () => console.log('Connected to DB'))
 
 const app = express();
 
+app.use(Fingerprint({
+    parameters:[
+        Fingerprint.useragent,
+        Fingerprint.acceptHeaders,
+        Fingerprint.geoip,
+    ]
+}))
+
 const server = new ApolloServer({
     typeDefs: schema,
     resolvers,
     context: ({ req }) => {
         const tokenWithBearer = req.headers.authorization || '';
-        const token = tokenWithBearer.split(' ')[1]
+        let token = tokenWithBearer.split(' ')[1]
+        // token = (token ? token.access :'')
+
         // try to retrieve a user with the token
         const user = contoller.getUser(token);  
         // add the user to the context
-        return { contextUser:user };
+        return { contextUser:user,fingerprint: req.fingerprint};
       },
 });
 

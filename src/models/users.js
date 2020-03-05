@@ -1,7 +1,16 @@
 import mongoose, { Schema } from "mongoose"
 
 
-var UserSchema = new mongoose.Schema({
+const refreshSchema = new mongoose.Schema({
+  token:  {
+     type: String
+  },
+  fingerprint: {
+    type: String
+  }
+});
+
+const UserSchema = new mongoose.Schema({
     email: {
       type: String,
       required: true,
@@ -29,8 +38,15 @@ var UserSchema = new mongoose.Schema({
     },
     disabledSidebar: {
       type: Array
+    },
+    refresh: {
+      type:[refreshSchema]
     }
   },{timestamps: true});
 
+
+function arrayLimit(val) {
+  return val.length <= 4;
+}
 
 module.exports = mongoose.model('User', UserSchema)
