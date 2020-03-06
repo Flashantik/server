@@ -18,7 +18,7 @@ require('dns').lookup(require('os').hostname(), function (_err, add, fam) {
   //   port = processs.env.PORT || 8080
   // } else {
   host = process.env.HOST || 'localhost'
-  port = process.env.PORT || 3000
+  port = process.env.PORT || 8080
   // }s
   async function start() {
     // Listen the server

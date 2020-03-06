@@ -3,7 +3,6 @@ module.exports = ({ name, lastname, result }) => {
 return `
 <!doctype html>
 <html>
-
         <!doctype html>
         <html>
         
@@ -13,10 +12,8 @@ return `
            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
            <style>
               .invoice-box {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                 height: 85vh;
+                overflow:hidden;
+                 height: 100%;
                  margin: auto;
                  padding: 30px;
                  font-size: 16px;
@@ -117,9 +114,9 @@ return `
            </div>
               <div style="font-size: .8em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
               <h1 style="text-align:center; font-size: 4.5em;">Поздравляем!</h1>
-              <h2 style="font-size: 2em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
+              <h2 style="font-size: 4em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
               </h2>
-              <div style="width: 280px; margin: auto; position:absolute; bottom: 0 ;left:50%; transform:translatex(-50%)">
+              <div style="width: 280px; position: absolute; right:0; top:120vh;">
               <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 167 52" enable-background="new 0 0 167 52" xml:space="preserve">
         <g>
