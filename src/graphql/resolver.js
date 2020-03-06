@@ -61,5 +61,12 @@ export default {
                 console.log("error in resolver", error)
             }
         },
+        checkTest(root, {answers}, {contextUser}){
+            try {
+                return completeController.checkTest(answers, contextUser)
+            } catch (error) {
+                console.log("error in resolver", error)
+            }
+        }
     }
 }

@@ -6,11 +6,23 @@ export default gql `
     login(user: inputUserLogin): User
     getUserData(token: String!):User
   }
+
+
   type Mutation {
     createUser(user: inputUser): User
     refreshToken(refreshToken:String!): Tokens
     logout(refreshToken:String!): Boolean
     setDisabledSidebar(disabledSidebar: [Boolean]!): [Boolean]
+    checkTest(answers:[Answers]!): String
+  }
+
+  input Element{
+    title: String
+    id: Int
+  }
+  input Answers {
+    element: Element
+    id: Int
   }
   type Tokens{
     access: String!

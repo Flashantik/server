@@ -2,6 +2,7 @@ import express from 'express'
 import { ApolloServer} from 'apollo-server-express'
 import mongoose from 'mongoose'
 import Fingerprint from'express-fingerprint'
+import cors from'cors'
 // import authRoutes from './routes/auth.routes'
 import contoller from "./controllers/auth.controller"
 
@@ -22,7 +23,7 @@ dbConnection.on('error', err => console.error("Connection failed", err))
 dbConnection.once('open', () => console.log('Connected to DB'))
 
 const app = express();
-
+app.use(cors())
 app.use(Fingerprint({
     parameters:[
         Fingerprint.useragent,
@@ -45,6 +46,10 @@ const server = new ApolloServer({
         return { contextUser:user,fingerprint: req.fingerprint};
       },
 });
+
+app.get('/fetch-pdf', (req, res) => {
+    res.sendFile(`${__dirname}/users/ruvita@ruvita.ru/result.pdf`)
+})
 
 server.applyMiddleware({
     app,
