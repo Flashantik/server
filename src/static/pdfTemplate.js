@@ -7,6 +7,7 @@ return `
 <head>
    <meta charset="utf-8">
    <title>Ruvita Сертификат</title>
+   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
    <style>
       .invoice-box {
         display: flex;
@@ -16,7 +17,7 @@ return `
          margin: auto;
          padding: 30px;
          font-size: 16px;
-         font-family: 'Helvetica Neue', 'Helvetica';
+         font-family: 'Roboto', sans-serif;
          color: #555;
          position: relative;
       }
