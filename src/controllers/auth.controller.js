@@ -114,14 +114,14 @@ export default {
                 email: user.email,
                 refresh:[{token:refreshToken, fingerprint}],
                 roles: ["readWrite"],
-                disabledSidebar: [ false, true, true, true, true, true, true, true, true, true] // disabled sidebar
+                disabledSidebar: [ false, true, true, true, true, true, true, true, true, true, true] // disabled sidebar
             })
             const userInBase = await newUser.save()
             const token = getAccessToken(userInBase.email, userInBase.name, newUser._id)
             console.log(refreshToken)
             return {
                 ...user,
-                disabledSidebar: [ false, true, true, true, true, true, true, true, true, true],
+                disabledSidebar: [ false, true, true, true, true, true, true, true, true, true, true],
                 token,
                 refresh:refreshToken
             }

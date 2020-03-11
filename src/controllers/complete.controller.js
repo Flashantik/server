@@ -27,16 +27,20 @@ export default {
             isTrueArray= isTrueArray.filter((a) =>{
                 return a ===true 
             })
+            console.log(isTrueArray)
             const resultPoints =(isTrueArray.length * 100) / trueAnswersId.length
-            if( resultPoints > 80) {
-                pdf.create(pdfTemplate({ name:myUser.name, lastname: myUser.lastname, result: resultPoints }), { "orientation": "landscape" })  
-                .toFile(`src/users/${myUser.email}/result.pdf`, (err,data) => {
-                if(err) {
-                    console.log(err)
-                }
-                return Promise.resolve()
-            });
-            return true
+            if( resultPoints >= 80) {
+                const promise1 = new Promise(function(resolve, reject) {
+                    pdf.create(pdfTemplate({ name:myUser.name, lastname: myUser.lastname, result: resultPoints }), { "orientation": "landscape" })  
+                    .toFile(`src/users/${myUser.email}/result.pdf`, (err,data) => {
+                    if(err) {
+                        console.log(err)
+                    }
+                   resolve(true)
+                    // return Promise.resolve()
+                })
+                  });
+                  return await promise1
             } else {
                 return null
             }

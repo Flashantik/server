@@ -41,7 +41,7 @@ const server = new ApolloServer({
         // token = (token ? token.access :'')
 
         // try to retrieve a user with the token
-        const user = contoller.getUser(token);  
+        const user = contoller.getUser(token);
         // add the user to the context
         return { contextUser:user,fingerprint: req.fingerprint};
       },
