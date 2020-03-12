@@ -17,8 +17,6 @@ return `
                 position:relative;
            }
               .invoice-box {
-                 height: 100%;
-                 margin: auto;
                  padding: 30px;
                  font-size: 16px;
                  font-family: 'Roboto', sans-serif;
