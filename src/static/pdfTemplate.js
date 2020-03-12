@@ -11,6 +11,9 @@ return `
            <title>Ruvita Сертификат</title>
            <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
            <style>
+           .body{
+                font-family: 'Roboto', sans-serif;
+           }
               .invoice-box {
                 overflow:hidden;
                  height: 100%;
