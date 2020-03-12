@@ -21,7 +21,10 @@ return `
                  font-size: 16px;
                  font-family: 'Roboto', sans-serif;
                  color: #555;
+                 width:100%;
                  position: relative;
+                 height: 700px;
+                 width:900px;
               }
         
               .margin-top {
@@ -114,9 +117,9 @@ return `
                  </g>
               </svg>
            </div>
-              <div style="font-size: .8em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
+              <div style="font-size: .6em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
               <h1 style="text-align:center; font-size: 4.5em;">Поздравляем!</h1>
-              <h2 style="font-size: 4em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
+              <h2 style="font-size: 3.5em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
               </h2>
            </div>
            <div id="logo" style="max-width:150px;"> 
