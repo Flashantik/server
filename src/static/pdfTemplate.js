@@ -23,8 +23,6 @@ return `
                  color: #555;
                  width:100%;
                  position: relative;
-                 height: 700px;
-                 width:900px;
               }
         
               .margin-top {
@@ -38,7 +36,7 @@ return `
               <div style="display: block; width: 97%; position: absolute;" >
               <svg 
               style=" height: 410px; display: block; margin: auto; opacity: .05;"" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                 x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
                  <g>
                     <g>
                        <polygon style="fill:#FFE100;"
@@ -117,12 +115,12 @@ return `
                  </g>
               </svg>
            </div>
-              <div style="font-size: .6em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
+              <div style="font-size: .5em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
               <h1 style="text-align:center; font-size: 4.5em;">Поздравляем!</h1>
-              <h2 style="font-size: 3.5em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
+              <h2 style="font-size: 3em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
               </h2>
            </div>
-           <div id="logo" style="max-width:150px;"> 
+           <div id="logo" style="max-width:100px;"> 
            <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 167 52" enable-background="new 0 0 167 52" xml:space="preserve">
    <g>
