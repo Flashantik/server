@@ -29,7 +29,7 @@ export default {
             })
             console.log(isTrueArray)
             const resultPoints =(isTrueArray.length * 100) / trueAnswersId.length
-            if( resultPoints >= 80) {
+            if( resultPoints >= 85) {
                 const promise1 = new Promise(function(resolve, reject) {
                     pdf.create(pdfTemplate({ name:myUser.name, lastname: myUser.lastname, result: resultPoints }), 
                     {"height": "8in", "width": "10.5in" })  

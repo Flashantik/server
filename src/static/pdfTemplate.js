@@ -116,8 +116,8 @@ return `
               </svg>
            </div>
               <div style="font-size: .5em; color: rgba(0, 0, 0, .35);">Дата выдачи сертификата:${`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}.`}</div>
-              <h1 style="text-align:center; font-size: 4.5em;">Поздравляем!</h1>
-              <h2 style="font-size: 3em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
+              <h1 style="text-align:center; font-size: 2em;">Поздравляем!</h1>
+              <h2 style="font-size: 1.5em; text-align:center;">${name} ${lastname} <br> прошел начальное обучение Рувита с результатом ${result}%
               </h2>
            </div>
            <div id="logo" style="max-width:100px;"> 
