@@ -47,8 +47,11 @@ const server = new ApolloServer({
       },
 });
 
-app.get('/fetch-pdf', (req, res) => {
-    res.sendFile(`${__dirname}/users/ruvita@ruvita.ru/result.pdf`)
+app.get('/fetch-pdf', async (req, res) => {
+    const tokenWithBearer = req.headers.authorization || '';
+    let token = tokenWithBearer.split(' ')[1]
+    const user = await contoller.getUser(token);
+    res.sendFile(`${__dirname}/users/${user.email}/result.pdf`)
 })
 
 server.applyMiddleware({
