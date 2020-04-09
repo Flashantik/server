@@ -113,6 +113,7 @@ export default {
                 phone: user.phone,
                 email: user.email,
                 refresh:[{token:refreshToken, fingerprint}],
+                pages:[],
                 roles: ["readWrite"],
                 disabledSidebar: [ false, true, true, true, true, true, true, true, true, true, true] // disabled sidebar
             })

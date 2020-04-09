@@ -16,7 +16,7 @@ export default {
 
 
     // ВКЛЮЧИТЬ ПОВОРОТ PDF ФАЙЛА!!!
-    async checkTest(answers, user){ // Создаем pdf если человек прошел тест 80% true, Файл надо бы потом удалять
+    async checkTest(answers, user){ // Создаем pdf если человек прошел тест 85% true, Файл надо бы потом удалять
         if(user) {
             const myUser = await user
             
@@ -46,5 +46,14 @@ export default {
                 return null
             }
         }
+    },
+    async setDoneStep({page, items},user) {
+        if(user){
+            const myUser = await user
+            myUser.pages[page] = items
+            myUser.save()
+            return items
+    }
+        return {page, key}
     }
 }

@@ -67,6 +67,16 @@ export default {
             } catch (error) {
                 console.log("error in resolver", error)
             }
+        },
+        setDoneStep(root, object, {contextUser}) {
+            
+            console.log('Резолвер пришел', object   )
+            // сonsole.log()
+            try {
+                return completeController.setDoneStep(object, contextUser)
+            } catch (error) {
+                console.log("error in resolver", error)
+            }
         }
     }
 }

@@ -14,8 +14,13 @@ export default gql `
     logout(refreshToken:String!): Boolean
     setDisabledSidebar(disabledSidebar: [Boolean]!): [Boolean]
     checkTest(answers:[Answers]!): String
+    setDoneStep(page:String!, items: [Boolean!]!): DoneObject
   }
 
+  type DoneObject{
+    page: String!
+    items: [Boolean!]!
+  } 
   input Element{
     title: String
     id: Int

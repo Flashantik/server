@@ -39,6 +39,18 @@ const UserSchema = new mongoose.Schema({
     disabledSidebar: {
       type: Array
     },
+    pages:{
+      additional_materials: {},
+      expirience: {},
+      finance: {},
+      hello: {},
+      knowledge: {},
+      objection: {},
+      personal_meeting: {},
+      script: {},
+      strategy: {},
+      test: {}
+    },
     refresh: {
       type:[refreshSchema]
     }
